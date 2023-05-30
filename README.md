@@ -40,11 +40,11 @@ ZenRSS is a minimalistic RSS reader that aggregates RSS feeds and provides a cle
 3. Click on the feed titles to read the full content in a new tab.
 4. The application automatically marks read feeds on the server-side, allowing you to keep track of your reading progress.
 
-## Contributing
+# Contributing
 
 Contributions are welcome! If you find any bugs or have suggestions for new features, please open an issue or submit a pull request.
 
-# Deployment instructions:
+## Deployment instructions:
 
 **Prerequisites:**
 - Node.js and npm installed on the deployment server
