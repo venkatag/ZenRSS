@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenRSS - Login/Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label,
+    input,
+    button {
+      margin-bottom: 10px;
+    }
+
+    input,
+    button {
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ZenRSS - Login/Register</h1>
+  <form id="registerForm">
+    <label for="registerUsername">Username:</label>
+    <input type="text" id="registerUsername" required>
+
+    <label for="registerPassword">Password:</label>
+    <input type="password" id="registerPassword" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <form id="loginForm">
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" required>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
+
+    registerForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const username = document.getElementById('registerUsername').value;
+      const password = document.getElementById('registerPassword').value;
+
+      fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      })
+        .then((response) => {
+          if (response.status === 201) {
+            alert('Registration successful!');
+          } else if (response.status === 400) {
+            alert('Please provide valid username and password');
+          } else if (response.status === 409) {
+            alert('Username already exists');
+          } else {
+            alert('Registration failed');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Registration failed');
+        });
+    });
+
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else if (response.status === 400) {
+            alert('Please provide valid username and password');
+          } else if (response.status === 401) {
+            alert('Authentication failed');
+          } else {
+            alert('Login failed');
+          }
+        })
+        .then((data) => {
+          if (data && data.token) {
+            localStorage.setItem('token', data.token);
+            alert('Login successful!');
+            window.location.href = '/dashboard.html';
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Login failed');
+        });
+    });
+  </script>
+</body>
+
+</html>

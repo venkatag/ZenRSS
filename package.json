@@ -1,0 +1,15 @@
+{
+    "name": "zenrss",
+    "version": "1.0.0",
+    "description": "Minimalistic RSS reader",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1"
+    }
+}
