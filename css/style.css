@@ -1,67 +1,77 @@
+/* Reset default browser styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li,
+blockquote,
+button,
+input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 body {
-    font-family: Arial, sans-serif;
-    max-width: 400px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+    line-height: 1.5;
+    color: #222222;
+    background-color: #f6f6ef;
+  }
+  
+  .container {
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
   }
-  
-  h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
+.header {
+  margin-bottom: 20px;
+}
+.header a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+.header a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.meta {
+  font-size: 12px;
+  color: #828282;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.content a {
+  color: #000000;
+  text-decoration: none;
+}
+.content a:hover {
+  text-decoration: underline;
+}
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #828282;
+}
+/* Responsive design */
+
+@media (max-width: 600px) {
+  .container {
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 16px;
-  }
   
-  button {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: #ff6600;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #ff5000;
-  }
-  
-  .alert {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  .alert.success {
-    background-color: #e6ffe6;
-    color: #006600;
-    border-color: #99ff99;
-  }
-  
-  .alert.error {
-    background-color: #ffe6e6;
-    color: #990000;
-    border-color: #ff9999;
-  }
-  
+}

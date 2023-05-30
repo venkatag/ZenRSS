@@ -2,37 +2,45 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>ZenRSS</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>ZenRSS</h1>
-  </header>
+  <div class="container">
+    <header class="header">
+      <h1 class="title"><a href="#">ZenRSS</a></h1>
+      <div class="user-info">
+        <span id="user-display-name"></span>
+        <button id="sign-out-btn" style="display: none;">Sign Out</button>
+      </div>
+    </header>
 
-  <main>
-    <section id="subscribed-feeds">
-      <h2>Subscribed Feeds</h2>
-      <ul id="subscribed-feeds-list"></ul>
-    </section>
+    <div class="sidebar">
+      <h2>Feeds</h2>
+      <div id="add-feed-section">
+        <input type="text" id="feed-url-input" placeholder="Enter feed URL">
+        <button id="add-feed-btn">Add Feed</button>
+      </div>
+      <ul class="feed-sidebar">
+        <!-- Feed titles and unread counts will be dynamically generated here -->
+      </ul>
+    </div>
 
-    <section id="read-feeds">
-      <h2>Read Feeds</h2>
-      <ul id="read-feeds-list"></ul>
-    </section>
+    <div class="content">
+      <h2>Feed Items</h2>
+      <ul class="feed-list">
+        <!-- Feed items will be dynamically generated here -->
+      </ul>
+    </div>
 
-    <section id="unread-feeds">
-      <h2>Unread Feeds</h2>
-      <ul id="unread-feeds-list"></ul>
-    </section>
-  </main>
+    <footer class="footer">
+      <p>&copy; 2023 ZenRSS. All rights reserved.</p>
+    </footer>
+  </div>
 
-  <footer>
-    <p>&copy; 2023 ZenRSS. All rights reserved.</p>
-  </footer>
-
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
