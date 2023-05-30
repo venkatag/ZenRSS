@@ -44,15 +44,7 @@ ZenRSS is a minimalistic RSS reader that aggregates RSS feeds and provides a cle
 
 Contributions are welcome! If you find any bugs or have suggestions for new features, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-```
-
-Feel free to customize the README.md file according to your specific project requirements, including adding or modifying the features, installation instructions, usage guidelines, and contributing information.
-
-
-Here are deployment instructions for the ZenRSS app:
+# Deployment instructions:
 
 **Prerequisites:**
 - Node.js and npm installed on the deployment server
@@ -108,7 +100,7 @@ Here are deployment instructions for the ZenRSS app:
 
 4. Set Up a Reverse Proxy (Optional):
 
-   - If you want to use a reverse proxy, such as Nginx, to serve the application, configure it to forward requests to the application running on the specified port (default: 3000).
+   - If you want to use a reverse proxy, such as Nginx, to serve the application, -configure it to forward requests to the application running on the specified port (default: 3000).
 
      Example Nginx configuration:
 
@@ -136,3 +128,8 @@ Here are deployment instructions for the ZenRSS app:
 That's it! Your ZenRSS application should now be deployed and accessible. Remember to customize the deployment process based on your specific hosting environment and requirements.
 
 Note: It's recommended to use HTTPS for secure communication. To enable HTTPS, you'll need to obtain an SSL certificate and configure your server accordingly.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+```
