@@ -2,7 +2,7 @@
     "name": "zenrss",
     "version": "1.0.0",
     "description": "Minimalistic RSS reader",
-    "main": "server.js",
+    "main": "server/server.js",
     "scripts": {
         "start": "node server.js"
     },
@@ -10,6 +10,10 @@
     "license": "MIT",
     "dependencies": {
         "express": "^4.17.1",
-        "jsonwebtoken": "^8.5.1"
+        "helmet": "^4.6.0",
+        "mongoose": "^6.1.0",
+        "express-validator": "^6.11.1",
+        "jsonwebtoken": "^8.5.1",
+        "bcrypt": "^5.0.1"
     }
 }

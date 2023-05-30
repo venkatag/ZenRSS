@@ -1,60 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const feedList = document.getElementById('feedList');
-  
-    // Fetch and display the RSS feeds
-    fetch('/feeds')
-      .then((response) => response.json())
-      .then((data) => {
-        data.forEach((feed) => {
-          const item = document.createElement('li');
-          item.innerHTML = `
-            <a href="${feed.link}" target="_blank" rel="noopener noreferrer">${feed.title}</a>
-          `;
-          feedList.appendChild(item);
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  
-    // Mark a feed item as read
-    function markAsRead(title, link) {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        console.error('No token found');
-        return;
-      }
-  
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-        body: JSON.stringify({ title, link }),
-      };
-  
-      fetch('/mark-read', requestOptions)
-        .then((response) => {
-          if (response.status === 200) {
-            console.log(`Marked as read: ${title}`);
-          } else {
-            console.error(`Failed to mark as read: ${title}`);
-          }
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    }
-  
-    // Add click event listener to mark items as read
-    feedList.addEventListener('click', (event) => {
-      if (event.target.tagName === 'A') {
-        const title = event.target.innerText;
-        const link = event.target.href;
-  
-        markAsRead(title, link);
-      }
-    });
+document.addEventListener('DOMContentLoaded', async () => {
+  const subscribedFeedsList = document.getElementById('subscribed-feeds-list');
+  const readFeedsList = document.getElementById('read-feeds-list');
+  const unreadFeedsList = document.getElementById('unread-feeds-list');
+
+  // Fetch subscribed feeds
+  const subscribedFeeds = await fetchFeeds('/subscribed-feeds');
+  renderFeeds(subscribedFeeds, subscribedFeedsList);
+
+  // Fetch read feeds
+  const readFeeds = await fetchFeeds('/read-feeds');
+  renderFeeds(readFeeds, readFeedsList);
+
+  // Fetch unread feeds
+  const unreadFeeds = await fetchFeeds('/unread-feeds');
+  renderFeeds(unreadFeeds, unreadFeedsList);
+});
+
+async function fetchFeeds(endpoint) {
+  const response = await fetch(endpoint);
+  const data = await response.json();
+  return data;
+}
+
+function renderFeeds(feeds, container) {
+  feeds.forEach(feed => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `
+      <a href="${feed.link}">${feed.title}</a>
+    `;
+    container.appendChild(listItem);
   });
-  
+}
