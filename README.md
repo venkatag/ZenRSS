@@ -12,40 +12,6 @@ ZenRSS is a minimalistic RSS reader that aggregates RSS feeds and provides a cle
 
 ## Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/venkatag/ZenRSS.git
-   ```
-
-2. Install the dependencies:
-
-   ```bash
-   cd ZenRSS
-   npm install
-   ```
-
-3. Start the application:
-
-   ```bash
-   npm start
-   ```
-
-4. Open your web browser and visit `http://localhost:3000` to access ZenRSS.
-
-## Usage
-
-1. Register a new user account or login with an existing account.
-2. Add RSS feed URLs to start pulling the latest content.
-3. Click on the feed titles to read the full content in a new tab.
-4. The application automatically marks read feeds on the server-side, allowing you to keep track of your reading progress.
-
-# Contributing
-
-Contributions are welcome! If you find any bugs or have suggestions for new features, please open an issue or submit a pull request.
-
-## Deployment instructions:
-
 **Prerequisites:**
 - Node.js and npm installed on the deployment server
 - A hosting provider or server to deploy the application
@@ -125,11 +91,18 @@ Contributions are welcome! If you find any bugs or have suggestions for new feat
 
      Example: `http://example.com`
 
-That's it! Your ZenRSS application should now be deployed and accessible. Remember to customize the deployment process based on your specific hosting environment and requirements.
+## Usage
 
-Note: It's recommended to use HTTPS for secure communication. To enable HTTPS, you'll need to obtain an SSL certificate and configure your server accordingly.
+1. Register a new user account or login with an existing account.
+2. Add RSS feed URLs to start pulling the latest content.
+3. Click on the feed titles to read the full content in a new tab.
+4. The application automatically marks read feeds on the server-side, allowing you to keep track of your reading progress.
 
-## License
+# Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for new features, please open an issue or submit a pull request.
+
+# License
 
 This project is licensed under the [MIT License](LICENSE).
 ```
